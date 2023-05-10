@@ -4,6 +4,10 @@ This project is organized and designed using clean architecture principles, sepa
 
 ## Test-driven development model
 Features for this project should be written with tests first, then code to validate the tests.  Unit tests will test logic and eventually integration tests will be written as well
+
+## Palette
+https://www.materialpalette.com/red/light-blue
+
 ## Project setup
 ```
 npm install
