@@ -1,6 +1,18 @@
 @use 'sass:map';
 @use 'sass:list';
 
+:root {
+    --dark-primary-color: #D32F2F;
+    --light-primary-color: #FFCDD2;
+    --primary-color: #F44336;
+    --icon-color: #FFFFFF;
+    --accent-color: #03A9F4;
+    --text-color: #212121;
+    --secondary-text-color: #757575;
+    --divider-color: #BDBDBD;
+}
+
+
 @font-face {
     font-family: 'Lato';
     font-style: normal;
@@ -35,12 +47,14 @@
     font-weight: 400 699;
     src: url(@/assets/fonts//Lato/Lato-Regular.ttf) format('truetype');
 }
+
 @font-face {
     font-family: 'Lato';
     font-style: italic;
     font-weight: 400 699;
     src: url(@/assets/fonts//Lato/Lato-Italic.ttf) format('truetype');
 }
+
 @font-face {
     font-family: 'Lato';
     font-style: normal;
