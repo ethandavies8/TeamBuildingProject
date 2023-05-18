@@ -1,8 +1,8 @@
 <template>
   <div class="Form-Page">
     <div class="header">
-      <div class="container diamond-shape"></div>
-      <h1 class="center">Submit Players</h1>
+      <div class="diamond"></div>
+      <h1 class="center">{{ msg }}</h1>
       <h4 class="sign-in">
         Create an account<br />Already have an account? Sign in
       </h4>
@@ -40,7 +40,7 @@ export default class Header extends Vue {
   left: 0;
 }
 
-.diamond-shape {
+.diamond {
   background: #fff;
   height: 32px;
   text-align: center;
@@ -81,23 +81,5 @@ h4 {
 h1 {
   color: #d32f2f;
   font-size: 20px;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 </style>

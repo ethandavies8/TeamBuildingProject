@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <!--<img alt="Vue logo" src="../assets/logo.png" /> -->
-    <Header></Header>
+    <Header msg="Skill Based Team Generator"></Header>
     <div class="player-container"></div>
   </div>
 </template>
