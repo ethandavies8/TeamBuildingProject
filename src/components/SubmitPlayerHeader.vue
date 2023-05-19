@@ -4,7 +4,24 @@
       <div class="diamond"></div>
       <h1 class="center">{{ msg }}</h1>
       <h4 class="sign-in">
-        Create an account<br />Already have an account? Sign in
+        <input
+          type="checkbox"
+          id="sign-in-dropdown-visible"
+          class="dropdown-checkbox"
+        />
+        <input
+          type="checkbox"
+          id="register-dropdown-visible"
+          class="dropdown-checkbox"
+        />
+        <label for="register-dropdown-visible" class="create-an-account"
+          >Create an account</label
+        ><br />Already have an account?
+        <label for="sign-in-dropdown-visible" class="sign-in">Sign in</label>
+        <div class="dropdown-box-container">
+          <div class="register-dropdown dropdown">register here</div>
+          <div class="sign-in-dropdown dropdown">sign in here</div>
+        </div>
       </h4>
     </div>
   </div>
@@ -26,6 +43,29 @@ export default class Header extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @use "../assets/style.scss";
+
+.dropdown-checkbox {
+  display: none;
+}
+
+.dropdown-box-container {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  transform: scale(0%);
+  transition: transform 200ms ease-out;
+  transform-origin: top right;
+  background-color: palegreen;
+}
+
+input.dropdown-checkbox:checked ~ .dropdown-box-container .dropdown {
+  transition: transform 200ms ease-in;
+  transform: scale(100%);
+}
 
 .header {
   flex-direction: row;
