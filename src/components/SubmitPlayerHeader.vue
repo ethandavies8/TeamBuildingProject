@@ -12,16 +12,45 @@
             <label for="register-dropdown-visible" class="create-an-account"
               ><u>Register</u>
             </label>
-          </div>
-          <input
-            type="radio"
-            id="register-dropdown-visible"
-            class="register-dropdown-checkbox"
-            name="register-button"
-          />
-          <div class="register-dropdown-box-container">
-            <div class="register-dropdown">
-              <h3>Register</h3>
+            <input
+              type="checkbox"
+              id="register-dropdown-visible"
+              class="register-dropdown-checkbox"
+              name="register-button"
+            />
+            <div class="register-dropdown-box-container">
+              <div class="register-dropdown">
+                <div class="register-header">
+                  <h1>Register</h1>
+                </div>
+                <form class="sign-up-form">
+                  <div class="email-info">
+                    <label for="email">Email</label><br />
+                    <input
+                      type="text"
+                      id="email"
+                      name="username"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div class="username-info">
+                    <label for="username">Username</label><br />
+                    <input
+                      type="text"
+                      id="username"
+                      name="password"
+                      placeholder="Username"
+                    />
+                  </div>
+                  <div class="password-info">
+                    <label>Password</label><br />
+                    <input type="text" placeholder="Password" />
+                  </div>
+                  <div class="submit-button">
+                    <input type="submit" value="Submit" />
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
           <div class="login">
@@ -29,14 +58,29 @@
               ><u>Sign in</u>
             </label>
             <input
-              type="radio"
+              type="checkbox"
               id="sign-in-dropdown-visible"
               class="sign-in-dropdown-checkbox"
               name="register-button"
             />
             <div class="sign-in-dropdown-box-container">
               <div class="sign-in-dropdown">
-                <h3>Sign Up</h3>
+                <div class="sign-in-header">
+                  <h1>Sign In</h1>
+                </div>
+                <form class="sign-in-form">
+                  <div class="username-info">
+                    <label>Username</label><br />
+                    <input type="text" placeholder="Username" />
+                  </div>
+                  <div class="password-info">
+                    <label>Password</label><br />
+                    <input type="text" placeholder="Password" />
+                  </div>
+                  <div class="submit-button">
+                    <input type="submit" value="Submit" />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -45,7 +89,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 @Options({
@@ -61,7 +104,17 @@ export default class Header extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @use "../assets/style.scss";
+.sign-in-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+.sign-up-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .sign-in-dropdown-checkbox {
   display: none;
 }
@@ -81,21 +134,39 @@ export default class Header extends Vue {
 .sign-in-dropdown {
   position: absolute;
   height: 300px;
-  width: 300px;
+  width: 450px;
   transform: scale(0%);
   transition: transform 200ms ease-out;
   transform-origin: top right;
-  background-color: black;
+  background-color: white;
+  border: 1px solid black;
 }
 
+.sign-in-dropdown h1 {
+  color: black;
+}
+
+.sign-in-dropdown label {
+  color: black;
+}
+
+.register-dropdown h1 {
+  color: black;
+}
+
+.register-dropdown label {
+  color: black;
+}
 .register-dropdown {
   position: absolute;
   height: 300px;
-  width: 300px;
+  width: 450px;
   transform: scale(0%);
   transition: transform 200ms ease-out;
   transform-origin: top right;
-  background-color: black;
+  background-color: white;
+  border: 1px solid black;
+  align-items: center;
 }
 
 .register-login {
@@ -133,7 +204,7 @@ input.sign-in-dropdown-checkbox:checked
   .sign-in-dropdown {
   transition: transform 200ms ease-in;
   transform: scale(100%);
-  transform: translate(-140px, 11px);
+  transform: translate(-290px, 11px);
 }
 
 input.register-dropdown-checkbox:checked
@@ -141,7 +212,7 @@ input.register-dropdown-checkbox:checked
   .register-dropdown {
   transition: transform 200ms ease-in;
   transform: scale(100%);
-  transform: translate(-22px, 40px);
+  transform: translate(-379px, 11px);
 }
 
 .header {
