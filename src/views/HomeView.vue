@@ -1,8 +1,12 @@
 <template>
   <div class="home">
     <Header msg="Skill Based Team Generator"></Header>
-    <div class="player-container"></div>
-    <RatingBar />
+    <div class="teams-container">
+      <div class="player-info">
+        <h3 class="enter-player-name">Enter Player name:</h3>
+        <RatingBar class="player-rating" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,11 +27,15 @@ export default class HomeView extends Vue { }
 <style scoped lang="scss">
 @use "../assets/style.scss";
 
-.player-container {
+.teams-container {
   margin-top: 80px;
   margin-left: 232px;
   margin-right: 232px;
   height: 856px;
   background-color: #fafafa;
+}
+
+.player-info {
+  flex-direction: row;
 }
 </style>
