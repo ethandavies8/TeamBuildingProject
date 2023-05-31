@@ -31,6 +31,7 @@
                       id="email"
                       name="username"
                       placeholder="Email"
+                      class="email"
                     />
                   </div>
                   <div class="username-info">
@@ -40,11 +41,17 @@
                       id="username"
                       name="password"
                       placeholder="Username"
+                      class="username"
                     />
                   </div>
                   <div class="password-info">
                     <label>Password</label><br />
-                    <input type="text" placeholder="Password" />
+                    <input
+                      type="text"
+                      id="password"
+                      placeholder="Password"
+                      class="password"
+                    />
                   </div>
                   <div class="submit-button">
                     <input type="submit" value="Submit" />
@@ -71,11 +78,21 @@
                 <form class="sign-in-form">
                   <div class="username-info">
                     <label>Username</label><br />
-                    <input type="text" placeholder="Username" />
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      class="username"
+                      id="username"
+                    />
                   </div>
                   <div class="password-info">
                     <label>Password</label><br />
-                    <input type="text" placeholder="Password" />
+                    <input
+                      type="text"
+                      placeholder="Password"
+                      class="password"
+                      id="password"
+                    />
                   </div>
                   <div class="submit-button">
                     <input type="submit" value="Submit" />
