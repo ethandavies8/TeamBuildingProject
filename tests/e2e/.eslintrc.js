@@ -6,5 +6,11 @@ module.exports = {
   },
   rules: {
     strict: "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };

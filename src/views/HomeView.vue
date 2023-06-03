@@ -1,21 +1,41 @@
 <template>
   <div class="home">
-    <RatingBar />
+    <Header msg="Skill Based Team Generator"></Header>
+    <div class="teams-container">
+      <div class="player-info">
+        <h3 class="enter-player-name">Enter Player name:</h3>
+        <RatingBar class="player-rating" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import RatingBar from "@/components/RatingBar.vue";
-
+import Header from "@/components/SubmitPlayerHeader.vue";
+import RatingBar from "@/components/RatingBar.vue"; // @ is an alias to /src
+import "@/assets/style.scss";
 @Options({
   components: {
-    HelloWorld,
+    Header,
     RatingBar,
   },
 })
-export default class HomeView extends Vue {}
+// eslint-disable-next-line prettier/prettier
+export default class HomeView extends Vue { }
 </script>
+<style scoped lang="scss">
+@use "../assets/style.scss";
 
-<style lang="scss" scoped></style>
+.teams-container {
+  margin-top: 80px;
+  margin-left: 232px;
+  margin-right: 232px;
+  height: 856px;
+  background-color: #fafafa;
+}
+
+.player-info {
+  flex-direction: row;
+}
+</style>
