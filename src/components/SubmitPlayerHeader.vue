@@ -9,14 +9,19 @@
         ><br />
         <div class="register-login">
           <div class="register">
-            <label for="register-dropdown-visible" class="create-an-account"
-              ><u>Register</u>
-            </label>
+            <button
+              for="register-dropdown-visible"
+              class="create-an-account"
+              v-on:click="setOpenDialog('register')"
+            >
+              <u>Register</u>
+            </button>
             <input
               type="checkbox"
               id="register-dropdown-visible"
               class="register-dropdown-checkbox"
               name="register-button"
+              v-model="isRegisterOpen"
             />
             <div class="register-dropdown-box-container">
               <div class="register-dropdown">
@@ -61,14 +66,15 @@
             </div>
           </div>
           <div class="login">
-            <label for="sign-in-dropdown-visible" class="sign-in"
-              ><u>Sign in</u>
-            </label>
+            <button v-on:click="setOpenDialog('signIn')" class="sign-in">
+              <u>Sign in</u>
+            </button>
             <input
               type="checkbox"
               id="sign-in-dropdown-visible"
               class="sign-in-dropdown-checkbox"
               name="register-button"
+              v-model="isSignInOpen"
             />
             <div class="sign-in-dropdown-box-container">
               <div class="sign-in-dropdown">
@@ -115,6 +121,19 @@ import { Options, Vue } from "vue-class-component";
 })
 export default class Header extends Vue {
   msg!: string;
+  openDialog?: string | null;
+  isSignInOpen = false;
+  isRegisterOpen = false;
+
+  public setOpenDialog(name?: string): void {
+    if (this.openDialog === name) {
+      this.openDialog = null;
+    } else {
+      this.openDialog = name;
+    }
+    this.isSignInOpen = this.openDialog === "signIn";
+    this.isRegisterOpen = this.openDialog === "register";
+  }
 }
 </script>
 
