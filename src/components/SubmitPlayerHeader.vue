@@ -27,7 +27,7 @@
                 <div class="register-header">
                   <h1>Register</h1>
                 </div>
-                <form class="sign-up-form">
+                <form class="sign-up-form" ref="registerForm">
                   <div class="email-info">
                     <label for="email">Email</label><br />
                     <input
@@ -36,6 +36,7 @@
                       name="username"
                       placeholder="Email"
                       class="email"
+                      v-model="email"
                     />
                   </div>
                   <div class="username-info">
@@ -46,6 +47,7 @@
                       name="password"
                       placeholder="Username"
                       class="username"
+                      v-model="username"
                     />
                   </div>
                   <div class="password-info">
@@ -55,10 +57,15 @@
                       id="password"
                       placeholder="Password"
                       class="password"
+                      v-model="password"
                     />
                   </div>
                   <div class="submit-button">
-                    <input type="submit" value="Submit" />
+                    <input
+                      type="submit"
+                      value="Submit"
+                      v-on:click="attemptRegister"
+                    />
                   </div>
                 </form>
               </div>
@@ -79,7 +86,7 @@
                 <div class="sign-in-header">
                   <h1>Sign In</h1>
                 </div>
-                <form class="sign-in-form">
+                <form class="sign-in-form" ref="loginForm">
                   <div class="username-info">
                     <label>Username</label><br />
                     <input
@@ -87,6 +94,7 @@
                       placeholder="Username"
                       class="username"
                       id="username"
+                      v-model="username"
                     />
                   </div>
                   <div class="password-info">
@@ -96,10 +104,15 @@
                       placeholder="Password"
                       class="password"
                       id="password"
+                      v-model="password"
                     />
                   </div>
                   <div class="submit-button">
-                    <input type="submit" value="Submit" />
+                    <input
+                      type="submit"
+                      value="Submit"
+                      v-on:click="attemptLogin"
+                    />
                   </div>
                 </form>
               </div>
@@ -122,6 +135,9 @@ export default class Header extends Vue {
   openDialog?: string | null;
   isSignInOpen = false;
   isRegisterOpen = false;
+  username?: string | null;
+  password?: string | null;
+  email?: string | null;
 
   public setOpenDialog(name?: string): void {
     if (this.openDialog === name) {
@@ -131,6 +147,14 @@ export default class Header extends Vue {
     }
     this.isSignInOpen = this.openDialog === "signIn";
     this.isRegisterOpen = this.openDialog === "register";
+  }
+
+  public attemptRegister(): void {
+    alert("attempt Register");
+  }
+
+  public attemptLogin(): void {
+    alert("attempt Login");
   }
 }
 </script>
