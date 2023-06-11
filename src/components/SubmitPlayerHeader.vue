@@ -7,11 +7,11 @@
         <label class="create-acccount-message"
           >Create an account to save player data</label
         ><br />
-        <div class="register-login">
-          <div class="register">
+        <div class="register-login-box">
+          <div class="register-box">
             <button
               for="register-dropdown-visible"
-              class="create-an-account"
+              class="register-button"
               v-on:click="setOpenDialog('register')"
             >
               <u>Register</u>
@@ -20,7 +20,6 @@
               type="checkbox"
               id="register-dropdown-visible"
               class="register-dropdown-checkbox"
-              name="register-button"
               v-model="isRegisterOpen"
             />
             <div class="register-dropdown-box-container">
@@ -66,14 +65,13 @@
             </div>
           </div>
           <div class="login">
-            <button v-on:click="setOpenDialog('signIn')" class="sign-in">
+            <button v-on:click="setOpenDialog('signIn')" class="sign-in-button">
               <u>Sign in</u>
             </button>
             <input
               type="checkbox"
               id="sign-in-dropdown-visible"
               class="sign-in-dropdown-checkbox"
-              name="register-button"
               v-model="isSignInOpen"
             />
             <div class="sign-in-dropdown-box-container">
@@ -140,6 +138,26 @@ export default class Header extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @use "../assets/style.scss";
+
+.register-button {
+  background-color: #ffffff;
+  width: 72px;
+  height: 32px;
+  text-align: center;
+  color: black;
+  vertical-align: middle;
+  border: 1 px solid black;
+}
+
+.sign-in-button {
+  background-color: #03a9f4;
+  width: 72px;
+  height: 32px;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  border: 1px solid black;
+}
 .sign-in-form {
   display: flex;
   align-items: center;
@@ -205,11 +223,12 @@ export default class Header extends Vue {
   align-items: center;
 }
 
-.register-login {
+.register-login-box {
   flex-direction: row;
 }
 
 .login {
+  border: none;
   float: right;
   margin: 8px 8px 8px 24px;
   background-color: #03a9f4;
@@ -217,7 +236,7 @@ export default class Header extends Vue {
   height: 32px;
   text-align: center;
 }
-.register {
+.register-box {
   float: right;
   margin: 8px 0px 8px 8px;
   background-color: #ffffff;
@@ -225,14 +244,14 @@ export default class Header extends Vue {
   height: 32px;
   text-align: center;
 }
-.create-an-account:hover {
-  text-decoration: underline;
+.register-button:hover {
   cursor: pointer;
+  color: #03a9f4;
 }
 
-.sign-in:hover {
-  text-decoration: underline;
+.sign-in-button:hover {
   cursor: pointer;
+  color: black;
 }
 
 input.sign-in-dropdown-checkbox:checked
@@ -296,14 +315,6 @@ input.register-dropdown-checkbox:checked
   height: 64px;
   width: 278px;
   color: #ffffff;
-}
-.create-an-account {
-  color: black;
-  vertical-align: middle;
-}
-.sign-in {
-  color: #ffffff;
-  vertical-align: middle;
 }
 h5 {
   margin-top: 4px;
