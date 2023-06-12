@@ -150,11 +150,23 @@ export default class Header extends Vue {
   }
 
   public attemptRegister(): void {
-    alert("attempt Register");
+    alert(
+      "Attempt to register user with Email: " +
+        this.email +
+        " Username: " +
+        this.username +
+        " Password: " +
+        this.password
+    );
   }
 
   public attemptLogin(): void {
-    alert("attempt Login");
+    alert(
+      "Attempt to login user with Username: " +
+        this.username +
+        " Password: " +
+        this.password
+    );
   }
 }
 </script>
