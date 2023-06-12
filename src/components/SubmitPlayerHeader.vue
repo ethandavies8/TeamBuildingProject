@@ -29,41 +29,42 @@
                 </div>
                 <form class="sign-up-form" ref="registerForm">
                   <div class="email-info">
-                    <label for="email">Email</label><br />
                     <input
                       type="text"
                       id="email"
                       name="username"
                       placeholder="Email"
-                      class="email"
+                      class="email-input"
+                      required
                       v-model="email"
                     />
                   </div>
                   <div class="username-info">
-                    <label for="username">Username</label><br />
                     <input
                       type="text"
                       id="username"
                       name="password"
                       placeholder="Username"
-                      class="username"
+                      class="register-username"
+                      required
                       v-model="username"
                     />
                   </div>
                   <div class="password-info">
-                    <label>Password</label><br />
                     <input
-                      type="text"
+                      type="password"
                       id="password"
                       placeholder="Password"
-                      class="password"
+                      class="register-password"
+                      required
                       v-model="password"
                     />
                   </div>
-                  <div class="submit-button">
+                  <div class="register-submit-button-box">
                     <input
                       type="submit"
                       value="Submit"
+                      class="register-submit"
                       v-on:click="attemptRegister"
                     />
                   </div>
@@ -87,30 +88,32 @@
                   <h1>Sign In</h1>
                 </div>
                 <form class="sign-in-form" ref="loginForm">
+                  <label class="needs-input"></label>
                   <div class="username-info">
-                    <label>Username</label><br />
                     <input
                       type="text"
                       placeholder="Username"
-                      class="username"
+                      class="login-username"
                       id="username"
+                      required
                       v-model="username"
                     />
                   </div>
                   <div class="password-info">
-                    <label>Password</label><br />
                     <input
-                      type="text"
+                      type="password"
                       placeholder="Password"
-                      class="password"
+                      class="login-password"
                       id="password"
+                      required
                       v-model="password"
                     />
                   </div>
-                  <div class="submit-button">
+                  <div class="login-submit-button-box">
                     <input
                       type="submit"
                       value="Submit"
+                      class="login-submit"
                       v-on:click="attemptLogin"
                     />
                   </div>
@@ -147,9 +150,16 @@ export default class Header extends Vue {
     }
     this.isSignInOpen = this.openDialog === "signIn";
     this.isRegisterOpen = this.openDialog === "register";
+    //default user input values back to null
+    this.username = null;
+    this.password = null;
+    this.email = null;
   }
 
   public attemptRegister(): void {
+    if (this.username === null || this.password === null || this.email === null)
+      return;
+    //alert to be replaced with API Call
     alert(
       "Attempt to register user with Email: " +
         this.email +
@@ -161,6 +171,8 @@ export default class Header extends Vue {
   }
 
   public attemptLogin(): void {
+    if (this.username === null || this.password === null) return;
+    //alert to be replaced with API call
     alert(
       "Attempt to login user with Username: " +
         this.username +
@@ -174,7 +186,6 @@ export default class Header extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @use "../assets/style.scss";
-
 .register-button {
   background-color: #ffffff;
   width: 72px;
@@ -204,6 +215,26 @@ export default class Header extends Vue {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.sign-up-form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 8px 0px 8px 0px;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.sign-in-form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 8px 0px 8px 0px;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 .sign-in-dropdown-checkbox {
   display: none;
@@ -288,6 +319,16 @@ export default class Header extends Vue {
 .sign-in-button:hover {
   cursor: pointer;
   color: black;
+}
+
+.login-submit:hover {
+  cursor: pointer;
+  background-color: #03a9f4;
+}
+
+.register-submit:hover {
+  cursor: pointer;
+  background-color: #03a9f4;
 }
 
 input.sign-in-dropdown-checkbox:checked
